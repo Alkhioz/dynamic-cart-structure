@@ -21,7 +21,9 @@
     ".": {
       "import": "./dist/dynamic-cart-structure.js",
       "require": "./dist/dynamic-cart-structure.umd.cjs"
-    }
+    },
+    "./package.json": "./package.json",
+    "./dist/index.d.ts": "./dist/index.d.ts"
   },
   "files": [
     "dist"
