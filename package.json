@@ -1,19 +1,45 @@
 {
   "name": "dynamic-cart-structure",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "A flexible, dynamic tree structure generator for creating and managing hierarchical shopping carts. Enables the user to create any level of grouping for cart items such as bundles, categories, items, and more. Suitable for any ecommerce application, it offers a high degree of customization and is compatible with any state management solution.",
+  "author": "alkhioz",
+  "license": "ISC",
+  "homepage": "https://github.com/Alkhioz/dynamic-cart-structure#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alkhioz/dynamic-cart-structure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alkhioz/dynamic-cart-structure/issues"
+  },
+  "keywords": ["shopping cart", "dynamic"],
+  "main": "./dist/dynamic-cart-structure.umd.cjs",
+  "module": "./dist/dynamic-cart-structure.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/dynamic-cart-structure.js",
+      "require": "./dist/dynamic-cart-structure.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.2.5",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
@@ -22,7 +48,10 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0"
   }
 }
