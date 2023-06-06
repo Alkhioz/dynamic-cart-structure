@@ -13,7 +13,10 @@
   "bugs": {
     "url": "https://github.com/Alkhioz/dynamic-cart-structure/issues"
   },
-  "keywords": ["shopping cart", "dynamic"],
+  "keywords": [
+    "shopping cart",
+    "dynamic"
+  ],
   "main": "./dist/dynamic-cart-structure.umd.cjs",
   "module": "./dist/dynamic-cart-structure.js",
   "types": "./dist/index.d.ts",
@@ -36,6 +39,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "hierarchical-node-structure": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
