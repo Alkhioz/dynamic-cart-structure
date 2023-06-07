@@ -28,7 +28,7 @@
     "build:esm": "tsc --outDir lib/esm",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs"
   },
-  "peerDependencies": {
+  "dependencies": {
     "hierarchical-node-structure": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
