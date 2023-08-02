@@ -1,35 +1,24 @@
-import { createContext, useRef } from "react";
+import { HierarchyNode } from "hierarchical-node-structure";
+import { createContext, useState } from "react";
 
-type DynamicCartContextType<T,D> = {
-    store: T | null,
-    dispatch: D | null,
-    setStore: (store:T)=>void,
-    setDispatch: (store:D)=>void,
+type DynamicCartContextType<T> = {
+    state: T | null,
+    setState: any | null,
 }
-export const DynamicCartContext = createContext<DynamicCartContextType<any, any>>({
-    store: null,
-    dispatch: null,
-    setStore: ()=>{},
-    setDispatch: ()=>{}
+export const DynamicCartContext = createContext<DynamicCartContextType<HierarchyNode<string>>>({
+    state: null,
+    setState: null,
 });
 
 export const DynamicCartProvider: React.FC<React.PropsWithChildren> = ({
     children,
 }): JSX.Element => {
-    const store = useRef(null);
-    const dispatch = useRef(null);
-    const setStore = (newStore:any)=>{
-        store.current = newStore;
-    }
-    const setDispatch = (newDispatch:any)=>{
-        dispatch.current = newDispatch;
-    }
+    const [state, setState] = useState(new HierarchyNode('Root'));
+   
     return (
     <DynamicCartContext.Provider value={{
-        store: store?.current,
-        dispatch: dispatch?.current,
-        setStore,
-        setDispatch,
+        state,
+        setState,
     }}>
         {children}
     </DynamicCartContext.Provider>
