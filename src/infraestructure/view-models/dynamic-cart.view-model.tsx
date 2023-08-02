@@ -4,7 +4,7 @@ import { HierarchyNode } from "hierarchical-node-structure";
 
 const turnToJson = (node:any) => {
     const json = {...node};
-    if(json.children.length>0){
+    if(json?.children?.length>0){
         json.children = json.children.map((child:any)=>{
             return turnToJson(child);
         });
@@ -17,7 +17,7 @@ export const UseDynamicCartViewModel = () => {
     const getStore = (): any => {
         if (rootNode===null) return null;
         return {
-            cart: turnToJson({...rootNode})
+            cart: turnToJson(rootNode)
         };
     }
 
