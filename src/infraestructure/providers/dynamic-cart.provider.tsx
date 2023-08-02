@@ -13,7 +13,7 @@ export const DynamicCartContext = createContext<DynamicCartContextType<any, any>
     setDispatch: ()=>{}
 });
 
-export const SecurityProvider: React.FC<React.PropsWithChildren> = ({
+export const DynamicCartProvider: React.FC<React.PropsWithChildren> = ({
     children,
 }): JSX.Element => {
     const store = useRef(null);
