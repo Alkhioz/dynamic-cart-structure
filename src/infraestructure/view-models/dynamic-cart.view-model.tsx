@@ -12,56 +12,84 @@ const turnToJson = (node:any) => {
     return json;
 }
 export const UseDynamicCartViewModel = () => {
-    const { store: rootNode } = useContext(DynamicCartContext);
-
+    const { store, setStore } = useContext(DynamicCartContext);
+    const rootNode = store.cart;
     const getStore = (): any => {
         if (rootNode===null) return null;
-        return turnToJson({...rootNode});
+        return {
+            cart: turnToJson({...rootNode})
+        };
     }
 
     const addItem = (item:any) => {
-        if(!!rootNode) rootNode.addNode(new HierarchyNode(item));
+        if(!!rootNode) {
+            rootNode.addNode(new HierarchyNode(item));
+            setStore({
+                cart: rootNode,
+            });
+        }
     }
 
     const addChildToItem = (id:string, item:any) => {
         if(!!rootNode){
             rootNode.addNodeToNode(id, new HierarchyNode(item));
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const removeItem = (id: string) => {
         if(!!rootNode){
             rootNode.removeNodeById(id);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const getItem = (id: string) => {
         if(!!rootNode){
             rootNode.getNodeById(id);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const executeFunctionOnItem = (id: string, callback:any, additionalParams:any) => {
         if(!!rootNode){
             rootNode.runFunctionOnNode(id, callback, additionalParams);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const executeFunction = (callback:any, additionalParams:any) => {
         if(!!rootNode){
             rootNode.runCustomFunction(callback, additionalParams);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const getParentId = (id:string) => {
         if(!!rootNode){
             rootNode.getParentNodeId(id);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
     const traverse = (reducer:any, initialValue:any) => {
         if(!!rootNode){
             rootNode.traverse(reducer, initialValue);
+            setStore({
+                cart: rootNode,
+            });
         }
     }
 
